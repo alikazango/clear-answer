@@ -1,0 +1,69 @@
+function start() { //I don't like codes
+	if(frontIsClear()){
+	    goto();
+	} else {
+	    goup();
+	}
+}
+function goto(){
+    turnLeft();
+    if(rightIsClear()){
+        turnRight();
+        while (frontIsClear()){
+            while(frontIsClear()){
+                if(ballsPresent()){
+                    takeBall();
+                }
+                move();
+            }
+            turnAround();
+            if(ballsPresent()){
+                takeBall();
+            }
+            if(rightIsBlocked()){
+                dabruneba();
+            }
+            while(frontIsClear()){
+                move();
+            }
+            if(rightIsClear()){
+                turnRight();
+                move();
+                turnRight();
+            } else {
+                dabruneba();
+            }
+        }
+    } else {
+        dabruneba();
+    }
+}
+
+function dabruneba(){
+    if(frontIsClear()){
+        while(frontIsClear()){
+            move();
+        }
+        turnLeft();
+        while(frontIsClear()){
+            move();
+        }
+    }
+}
+
+function goup(){
+    turnLeft();
+    while(frontIsClear()){
+        if(ballsPresent()){
+            takeBall();
+        }
+        move();
+    }
+    takeBall();
+    if(frontIsBlocked()){
+        turnAround();
+        while(frontIsClear()){
+            move();
+        }
+    }
+}
